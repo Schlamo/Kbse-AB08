@@ -84,11 +84,11 @@
                         <th>Price</th>
                         <th>Quantity</th>
                     </tr>
-                    <ui:repeat varStatus="loop" var="pizza" value="#{boundary.pizzaLister.pizzaList}">
+                    <ui:repeat varStatus="loop" var="pair" value="#{boundary.order.pairs}">
                         <tr>
-                            <td>#{pizza.nr}</td>
-                            <td>#{pizza.name}</td>
-                            <td>#{pizza.price}0 $</td>
+                            <td>#{pair.pizza.nr}</td>
+                            <td>#{pair.pizza.name}</td>
+                            <td>#{pair.pizza.price}0 $</td>
                             <td>
                                 <p:inputText value="#{boundary.order.pairs[loop.index].amount}">
                                     <p:ajax event="keyup" update="#{p:component('price')}" listener="#{boundary.listener}"></p:ajax>

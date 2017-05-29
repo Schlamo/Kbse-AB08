@@ -74,11 +74,11 @@
                 <th>Amount</th>
                 <th>Price</th>
             </tr>
-        <ui:repeat varStatus="loop" var="pizza" value="#{boundary.finalOrder.pairs}">
+        <ui:repeat varStatus="loop" var="pair" value="#{boundary.finalOrder.pairs}">
             <tr style="border-top: solid 1px #cccccc;">
-                <td>#{pizza.name}</td>
-                <td>#{pizza.amount}</td>
-                <td>#{pizza.price * pizza.amount}0 $</td>
+                <td>#{pair.pizza.name}</td>
+                <td>#{pair.amount}</td>
+                <td>#{pair.pizza.price * pair.amount}0 $</td>
             </tr>
         </ui:repeat>
         </table>

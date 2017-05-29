@@ -63,10 +63,11 @@ public class Boundary implements Serializable{
         this.repo.addCustomer(new Customer("Peter", "Peter", 
                 new Login("peter", "peter", "peter"), 
                 new Address("Peter Strasse 5", "012135179", "12512", "Osnabrooklyn")));
-        
-        if(pizzaLister.getPizzaList().size() == 0) {
+        System.out.println(pizzaLister.getPizzaList().size());
+        if(pizzaLister.getPizzaList().size() != 0) {
             for(Pizza p: pizzaLister.getPizzaList()) {
                 this.order.addPair(new PizzaPair(p, 0));
+                System.out.println(p.getName());
             }
             System.out.println("Order Size: " + this.order.getPairs().size());
         }
