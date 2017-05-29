@@ -49,12 +49,12 @@ public class Boundary implements Serializable{
     private String password;
     
     public Boundary() {
-        pizzaLister = new PizzaLister();
+        System.out.println("BoundaryConstructor");
     }
 
     @PostConstruct
     public void init() {
-        System.out.println("init");
+        System.out.println("BoundaryInit");
         
         this.customer.setAddress(new Address());
         this.customer.setLogin(new Login());
@@ -62,9 +62,7 @@ public class Boundary implements Serializable{
         this.repo.addCustomer(new Customer("Peter", "Peter", 
                 new Login("peter", "peter", "peter"), 
                 new Address("Peter Strasse 5", "012135179", "12512", "Osnabrooklyn")));
-        System.out.println("Size:" + pizzaLister.getPizzaList().size());
         for(Pizza p: pizzaLister.getPizzaList()) {
-        System.out.println(p.getName());
             order.addPair(new PizzaPair(p, 0));
         }
     }
