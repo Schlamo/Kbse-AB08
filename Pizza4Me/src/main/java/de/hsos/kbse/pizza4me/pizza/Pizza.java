@@ -18,13 +18,13 @@ import javax.persistence.NamedQuery;
 public class Pizza implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
-    protected Integer Id;
+    protected Integer id;
     
     private String name;
     private double price;    
     
     public Pizza (int Id, String name, double price) {
-        this.Id = Id;
+        this.id = Id;
         this.name = name;
         this.price = price;
     }
@@ -32,12 +32,12 @@ public class Pizza implements Serializable {
     public Pizza() {
     }
 
-    public int getNr() {
-        return Id;
+    public int getId() {
+        return id;
     }
 
-    public void setNr(int Id) {
-        this.Id = Id;
+    public void setId(int Id) {
+        this.id = Id;
     }
 
     public String getName() {

@@ -7,7 +7,6 @@ import de.hsos.kbse.pizza4me.pizza.Oorder;
 import de.hsos.kbse.pizza4me.pizza.Pizza;
 import de.hsos.kbse.pizza4me.pizza.PizzaPair;
 import de.hsos.kbse.pizza4me.repository.CustomerRepository;
-import de.hsos.kbse.pizza4me.repository.OrderController;
 import de.hsos.kbse.pizza4me.repository.PizzaLister;
 import java.io.Serializable;
 import java.sql.Connection;
@@ -60,9 +59,9 @@ public class Boundary implements Serializable{
         this.customer.setAddress(new Address());
         this.customer.setLogin(new Login());
         
-        this.repo.addCustomer(new Customer("Peter", "Peter", 
+        this.repo.addCustomer(repo.persist(new Customer("Peter", "Peter", 
                 new Login("peter", "peter", "peter"), 
-                new Address("Peter Strasse 5", "012135179", "12512", "Osnabrooklyn")));
+                new Address("Peter Strasse 5", "012135179", "12512", "Osnabrooklyn"))));
         System.out.println(pizzaLister.getPizzaList().size());
         if(pizzaLister.getPizzaList().size() != 0) {
             for(Pizza p: pizzaLister.getPizzaList()) {
@@ -155,6 +154,9 @@ public class Boundary implements Serializable{
     }
     
     public String login() {
+        if(finalOrder == null) {
+            System.out.println("NULL");
+        }
         if(repo.validateUser(username, password)) {
             this.customer = repo.getCustomerByUsername(username);
             this.customer.addOrder(finalOrder);

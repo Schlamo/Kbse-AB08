@@ -33,10 +33,10 @@ public class PizzaLister implements Serializable{
     }
     
     public void createPizzas() {
-        this.pizzas.add(new Pizza(1, "Margherita", 5.0));
-        this.pizzas.add(new Pizza(2, "Salami", 5.0));
-        this.pizzas.add(new Pizza(3, "Broccoli", 5.0));
-        this.pizzas.add(new Pizza(4, "Kbse", 5.0));
+        this.pizzas.add(this.persist(new Pizza(1, "Margherita", 5.0)));
+        this.pizzas.add(this.persist(new Pizza(2, "Salami", 5.0)));
+        this.pizzas.add(this.persist(new Pizza(3, "Broccoli", 5.0)));
+        this.pizzas.add(this.persist(new Pizza(4, "Kbse", 5.0)));
     }
     
     public List<Pizza> getPizzaList() {

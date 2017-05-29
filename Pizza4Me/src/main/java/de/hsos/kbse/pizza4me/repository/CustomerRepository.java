@@ -12,7 +12,7 @@ import javax.persistence.TypedQuery;
 @ApplicationScoped
 @Named
 public class CustomerRepository {
-    @PersistenceContext(name = "CustomerPU")
+    @PersistenceContext(unitName = "CustomerPU")
     private EntityManager em;
     
     private List<Customer> customers;
@@ -54,4 +54,12 @@ public class CustomerRepository {
         this.customers.add(c);
     }
     
+    public Customer persist(Customer c) {
+        try {
+            this.em.persist(c);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return c;
+    }
 }
