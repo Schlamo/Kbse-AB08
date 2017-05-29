@@ -1,8 +1,6 @@
 package de.hsos.kbse.pizza4me.repository;
 
 import de.hsos.kbse.pizza4me.customer.Customer;
-import de.hsos.kbse.pizza4me.customer.Login;
-import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;

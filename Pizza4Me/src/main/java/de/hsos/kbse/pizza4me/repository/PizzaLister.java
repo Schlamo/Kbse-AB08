@@ -2,6 +2,7 @@ package de.hsos.kbse.pizza4me.repository;
 
 import de.hsos.kbse.pizza4me.pizza.Pizza;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
@@ -17,13 +18,12 @@ public class PizzaLister implements Serializable{
     @PersistenceContext(unitName = "CustomerPU")
     protected EntityManager em;
     
-    private List<Pizza> pizzaList;
+    private List<Pizza> pizzaList = new ArrayList();
     
     @PostConstruct
     public void init() {
         TypedQuery<Pizza> query = this.em.createNamedQuery("findAllPizzas", Pizza.class);
         this.pizzaList = (List<Pizza>)query.getResultList();
-        
     }
 
     public PizzaLister() {
@@ -33,6 +33,7 @@ public class PizzaLister implements Serializable{
         this.pizzaList.add(persist(new Pizza( 4, "Pizza Schinken", 5.0)));
         this.pizzaList.add(persist(new Pizza( 5, "Pizza Broccoli", 6.0)));
     }
+    
     @Produces
     public List<Pizza> getPizzaList() {
         return this.pizzaList;

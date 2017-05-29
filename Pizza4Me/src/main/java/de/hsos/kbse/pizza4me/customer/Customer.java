@@ -2,7 +2,6 @@ package de.hsos.kbse.pizza4me.customer;
 
 import de.hsos.kbse.pizza4me.pizza.Oorder;
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.List;
 import javax.enterprise.inject.Vetoed;
 import javax.persistence.Access;
@@ -16,7 +15,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
 @Entity
 @Access(AccessType.FIELD)

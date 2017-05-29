@@ -1,5 +1,6 @@
 package de.hsos.kbse.pizza4me.pizza;
 
+import java.io.Serializable;
 import javax.enterprise.inject.Vetoed;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
@@ -13,7 +14,7 @@ import javax.persistence.NamedQuery;
 @Access(AccessType.FIELD)
 @Vetoed
 @NamedQuery(name ="findAllPizzas", query="SELECT p FROM Pizza p")
-public class Pizza {
+public class Pizza implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
     protected Integer Id;
