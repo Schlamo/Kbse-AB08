@@ -70,7 +70,7 @@ public class Boundary implements Serializable{
         this.repo.addCustomer(new Customer("Peter", "Peter", 
                 new Login("peter", "peter", "peter"), 
                 new Address("Peter Strasse 5", "012135179", "12512", "Osnabrooklyn")));
-        
+        System.out.println(pizzas.size());
         for(Pizza p: pizzas) {
         System.out.println(p.getName());
             order.addPair(new PizzaPair(p, 0));

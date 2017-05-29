@@ -1,6 +1,7 @@
 package de.hsos.kbse.pizza4me.pizza;
 
 import java.io.Serializable;
+import javax.enterprise.context.Dependent;
 import javax.enterprise.inject.Vetoed;
 import javax.persistence.Access;
 import javax.persistence.AccessType;
@@ -23,6 +24,7 @@ public class Pizza implements Serializable {
     private double price;    
     
     public Pizza (int Id, String name, double price) {
+        System.out.println(name);
         this.Id = Id;
         this.name = name;
         this.price = price;

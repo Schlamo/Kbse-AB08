@@ -18,32 +18,34 @@ public class PizzaLister implements Serializable{
     @PersistenceContext(unitName = "CustomerPU")
     protected EntityManager em;
     
-    private List<Pizza> pizzaList = new ArrayList();
+    private List<Pizza> pizzas = new ArrayList();
     
     @PostConstruct
     public void init() {
         TypedQuery<Pizza> query = this.em.createNamedQuery("findAllPizzas", Pizza.class);
-        this.pizzaList = (List<Pizza>)query.getResultList();
+        this.pizzas = (List<Pizza>)query.getResultList();
     }
 
     public PizzaLister() {
-        this.pizzaList.add(persist(new Pizza( 1, "Pizza Margherita", 4.5)));
-        this.pizzaList.add(persist(new Pizza( 2, "Pizza Thunfisch", 5.0)));
-        this.pizzaList.add(persist(new Pizza( 3, "Pizza Salami", 5.0)));
-        this.pizzaList.add(persist(new Pizza( 4, "Pizza Schinken", 5.0)));
-        this.pizzaList.add(persist(new Pizza( 5, "Pizza Broccoli", 6.0)));
+        this.pizzas.add(persist(new Pizza( 1, "Pizza Margherita", 4.5)));
+        this.pizzas.add(persist(new Pizza( 2, "Pizza Thunfisch", 5.0)));
+        this.pizzas.add(persist(new Pizza( 3, "Pizza Salami", 5.0)));
+        this.pizzas.add(persist(new Pizza( 4, "Pizza Schinken", 5.0)));
+        this.pizzas.add(persist(new Pizza( 5, "Pizza Broccoli", 6.0)));
+        System.out.println("Size(Lister): " + pizzas.size());
     }
     
     @Produces
     public List<Pizza> getPizzaList() {
-        return this.pizzaList;
+        System.out.println("getPizzaList");
+        return this.pizzas;
     }
     
     private Pizza persist(Pizza p) {
         try {
             this.em.persist(p);
         } catch(Exception e) {
-            
+            e.printStackTrace();
         }
         return p;
     }
