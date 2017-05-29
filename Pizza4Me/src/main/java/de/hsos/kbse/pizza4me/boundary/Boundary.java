@@ -56,15 +56,17 @@ public class Boundary implements Serializable{
     public void init() {
         System.out.println("BoundaryInit");
         
+        pizzaLister.createPizzas();
         this.customer.setAddress(new Address());
         this.customer.setLogin(new Login());
         
         this.repo.addCustomer(new Customer("Peter", "Peter", 
                 new Login("peter", "peter", "peter"), 
                 new Address("Peter Strasse 5", "012135179", "12512", "Osnabrooklyn")));
-        for(Pizza p: pizzaLister.getPizzaList()) {
+        System.out.println(pizzaLister.getPizzaList().size());
+        /*for(Pizza p: pizzaLister.getPizzaList()) {
             order.addPair(new PizzaPair(p, 0));
-        }
+        }*/
     }
 
     public String getUsername() {

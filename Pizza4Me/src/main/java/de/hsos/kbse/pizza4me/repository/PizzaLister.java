@@ -24,12 +24,19 @@ public class PizzaLister implements Serializable{
     @PostConstruct
     public void init() {
         System.out.println("PizzaLister init()");
-        
-        Pizza p = new Pizza( 1, "Pizza Margherita", 4.5);
+        TypedQuery<Pizza> query = this.em.createNamedQuery("findAllPizzas", Pizza.class);
+        this.pizzas = (List<Pizza>)query.getResultList();
     }
 
     public PizzaLister() {
         System.out.println("PizzaLister Constructor");
+    }
+    
+    public void createPizzas() {
+        this.pizzas.add(new Pizza(1, "Margherita", 5.0));
+        this.pizzas.add(new Pizza(2, "Salami", 5.0));
+        this.pizzas.add(new Pizza(3, "Broccoli", 5.0));
+        this.pizzas.add(new Pizza(4, "Kbse", 5.0));
     }
     
     public List<Pizza> getPizzaList() {
