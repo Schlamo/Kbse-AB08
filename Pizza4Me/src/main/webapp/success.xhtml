@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE xhtml PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <style>
+        h1 {
+            font-size: 40px;
+        }
+        div {
+            text-align: center;
+            background-color: white;
+            border-radius: 25px;
+        }
+        * {
+            padding: 0px;
+            margin: 0px;
+            font-size: 20px;
+            font-family: Calibri;
+        }
+
+        body {
+            background-image: url("assets/pizzaBackground.png");
+        }
+
+        input[type="text"] {
+            text-align: center;
+            margin-top: 50px;
+            padding: 13px;
+            border: solid 1px #ccc;
+            border-radius: 150px;
+            width: 300px;
+            color: #000000;
+            outline: none;
+        }
+
+        input[type="text"]:focus, input[type="text"]:hover {
+            border: solid 1px #888;
+        }
+
+        input[type="submit"] {
+            margin-top: 50px !important;
+            padding: 15px;
+            margin: 5px;
+            border-radius: 150px;
+            border: solid 1px #666;
+            background-color: #fff;
+            outline: none;
+            width: 300px;
+            color: #444;
+        }
+
+        input[type="submit"]:focus, input[type="submit"]:hover {
+            border: solid 1px #000;
+            color: #000;
+        }
+        td {
+            text-align: center;
+            width: 30%;
+        }
+    </style>
+    <title>Start Page</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+</h:head>
+<h:body>
+    <div style="margin-top: 10%; width: 60%; margin-left: 20%;">
+        <h1 style="padding: 10px !important;">You just ordered!</h1>
+        <table style="width: 80%; margin-left: 10%">
+            <tr>
+                <th>Pizza</th>
+                <th>Amount</th>
+                <th>Price</th>
+            </tr>
+        <ui:repeat varStatus="loop" var="pizza" value="#{boundary.finalOrder.pairs}">
+            <tr style="border-top: solid 1px #cccccc;">
+                <td>#{pizza.name}</td>
+                <td>#{pizza.amount}</td>
+                <td>#{pizza.price * pizza.amount}0 $</td>
+            </tr>
+        </ui:repeat>
+        </table>
+        <br/>
+        Total Price: #{boundary.price}0 $<br/><br/>
+
+    </div>
+</h:body>
+</html>

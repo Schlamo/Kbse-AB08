@@ -1,0 +1,69 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE xhtml PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui">
+
+    <h:head>
+        <style>
+            div {
+                text-align: center;
+                background-color: white;
+                border-radius: 25px;
+            }
+            * {
+                padding: 0px;
+                margin: 0px;
+                font-size: 20px;
+                font-family: Calibri;
+            }
+
+            body {
+                background-image: url("assets/pizzaBackground.png");
+            }
+
+            input[type="text"] {
+                text-align: center;
+                margin-top: 50px;
+                padding: 13px;
+                border: solid 1px #ccc;
+                border-radius: 150px;
+                width: 300px;
+                color: #000000;
+                outline: none;
+            }
+
+            input[type="text"]:focus, input[type="text"]:hover {
+                border: solid 1px #888;
+            }
+
+            input[type="submit"] {
+                margin-top: 50px !important;
+                padding: 15px;
+                margin: 5px;
+                border-radius: 150px;
+                border: solid 1px #666;
+                background-color: #fff;
+                outline: none;
+                width: 300px;
+                color: #444;
+            }
+
+            input[type="submit"]:focus, input[type="submit"]:hover {
+                border: solid 1px #000;
+                color: #000;
+            }
+        </style>
+        <title>Start Page</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
+    </h:head>
+    <h:body>
+        <div style="margin-top: 10%; width: 60%; margin-left: 20%; height: 260px;">
+            <span style="margin-top: 20px">Cart is empty! Please try again.</span>
+            <h:form>
+                <h:commandButton action="#{boundary.backToIndex}" value="Try Again"></h:commandButton>
+            </h:form>
+        </div>
+    </h:body>
+</html>
