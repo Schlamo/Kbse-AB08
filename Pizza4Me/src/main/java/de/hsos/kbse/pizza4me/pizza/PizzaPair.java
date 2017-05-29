@@ -22,45 +22,25 @@ public class PizzaPair implements Serializable {
     
     @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name="PIZZA_ID")
-    
     private Pizza pizza;
+    
     private int amount;
 
     public PizzaPair() {
         
     }
     
-    public double getPrice() {
-        return pizza.getPrice();
-    }
-
-    public void setPrice(double price) {
-        this.pizza.setPrice(price); 
-    }
-
     public PizzaPair(Pizza p, int amount) {
         this.pizza = p;
         this.amount = amount;
     }
 
-    public String getName() {
-        return pizza.getName();
-    }
-
-    public void setName(String name) {
-        this.pizza.setName(name);
-    }
-    
-    public int getPizzaNr() {
-        return pizza.getNr();
-    }
-
-    public void setPizzaNr(int pizzaNr) {
-        this.pizza.setNr(pizzaNr);
-    }
-
     public int getAmount() {
         return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
     public Integer getId() {
@@ -77,9 +57,5 @@ public class PizzaPair implements Serializable {
 
     public void setPizza(Pizza pizza) {
         this.pizza = pizza;
-    }
-
-    public void setAmount(int amount) {
-        this.amount = amount;
     }
 }

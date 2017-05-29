@@ -84,7 +84,7 @@
                         <th>Price</th>
                         <th>Quantity</th>
                     </tr>
-                    <ui:repeat varStatus="loop" var="pizza" value="#{boundary.pizzas}">
+                    <ui:repeat varStatus="loop" var="pizza" value="#{boundary.pizzaLister.pizzaList}">
                         <tr>
                             <td>#{pizza.nr}</td>
                             <td>#{pizza.name}</td>

@@ -28,13 +28,9 @@ public class Oorder implements Serializable {
     private List<PizzaPair> pairs;
     
     public Oorder() {
-        
+        pairs = new ArrayList<PizzaPair>();
     }    
     
-    public Oorder(List<PizzaPair> pairs) {
-        this.pairs = pairs;
-    }
-
     public Integer getId() {
         return id;
     }
@@ -45,7 +41,7 @@ public class Oorder implements Serializable {
     
     public void addPair(PizzaPair pair) {
         this.pairs.add(pair);
-    };
+    }
 
     public List<PizzaPair> getPairs() {
         return pairs;

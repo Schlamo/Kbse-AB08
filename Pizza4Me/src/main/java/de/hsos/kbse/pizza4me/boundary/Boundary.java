@@ -63,12 +63,12 @@ public class Boundary implements Serializable{
         this.repo.addCustomer(new Customer("Peter", "Peter", 
                 new Login("peter", "peter", "peter"), 
                 new Address("Peter Strasse 5", "012135179", "12512", "Osnabrooklyn")));
-        System.out.println(pizzaLister.getPizzaList().size());
+        
         if(pizzaLister.getPizzaList().size() == 0) {
             for(Pizza p: pizzaLister.getPizzaList()) {
                 this.order.addPair(new PizzaPair(p, 0));
-                System.out.println(p.getName());
             }
+            System.out.println("Order Size: " + this.order.getPairs().size());
         }
     }
 
@@ -120,6 +120,14 @@ public class Boundary implements Serializable{
         return customer;
     }
 
+    public PizzaLister getPizzaLister() {
+        return pizzaLister;
+    }
+
+    public void setPizzaLister(PizzaLister pizzaLister) {
+        this.pizzaLister = pizzaLister;
+    }
+    
     public void setCustomer(Customer customer) {
         this.customer = customer;
     }
@@ -162,8 +170,8 @@ public class Boundary implements Serializable{
     public void listener() {
         this.price = 0.0;
         for(PizzaPair p: order.getPairs()) {
-            System.out.print(p.getPrice());
-            this.price += p.getPrice() * p.getAmount();
+            System.out.print(p.getPizza().getPrice());
+            this.price += p.getPizza().getPrice() * p.getAmount();
         }
     }
 }
