@@ -113,6 +113,9 @@ public class Boundary implements Serializable{
         this.customer = customer;
     }
 
+    public Boundary() {
+    }
+
     public double getPrice() {
         return price;
     }

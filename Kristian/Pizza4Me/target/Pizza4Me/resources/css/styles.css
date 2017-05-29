@@ -1,0 +1,417 @@
+*
+{
+    font-family: 'Permanent Marker';
+}
+
+@-webkit-keyframes rotate 
+{
+  from {-webkit-transform:rotate(0deg);}
+  to {  -webkit-transform:rotate(360deg);}
+}
+
+@-moz-keyframes rotate
+{
+  from {-moz-transform:rotate(0deg);}
+  to {  -moz-transform:rotate(360deg);}
+}
+
+@-webkit-keyframes pulse_animation 
+{
+        from { -webkit-transform: none; }
+	50% { -webkit-transform: scale(1.1); }
+	to { -webkit-transform: none; }
+}
+
+@-moz-keyframes pulse_animation 
+{
+        from { -moz-transform: none; }
+	50% { -moz-transform: scale(1.1); }
+	to { -moz-transform: none; }
+}
+
+html
+{
+    background: linear-gradient(darkorange, yellow);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+body
+{
+
+}
+
+.wrapper
+{
+    width: 90%; 
+    margin: auto; 
+    text-align: center;
+    position: relative;
+}
+
+.pizza
+{
+    z-index: -100;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 30%;
+    font-family: 'Permanent Marker';
+    -webkit-animation-name: rotate;
+    -webkit-animation-duration:60s;
+    -webkit-animation-iteration-count:infinite;
+    -webkit-animation-timing-function:linear;
+    -moz-animation-name: rotate;
+    -moz-animation-duration:60s;
+    -moz-animation-iteration-count:infinite;
+    -moz-animation-timing-function:linear;
+}
+
+.header
+{
+    font-family: 'Permanent Marker';
+    font-size: 5vw;
+    font-weight: bold;
+    color:  red;
+    text-shadow: -8px 8px 20px #fff, 8px -8px 20px white,
+        10px 10px 10px black;
+}
+
+.headerExtra
+{
+    font-family: 'Permanent Marker';
+    font-size: 3vw;
+    font-weight: bold;
+    color:  firebrick;
+    text-shadow: -8px 8px 20px #fff, 8px -8px 20px white,
+        10px 10px 10px black;
+}
+
+.panel > .ui-panel-titlebar
+{
+    color: darkslateblue;
+}
+
+.cellHeader
+{
+    font-weight: bolder;
+    font-size: 1vw;
+}
+
+form
+{
+    text-shadow: 4px 4px 4px rgba(255, 255, 255, 0.5);
+    color: darkslateblue;
+}
+
+.cell
+{
+    font-size: 16px;
+}
+
+.table
+{
+    opacity: 0.9;
+}
+
+.panel
+{
+    opacity: 0.9;
+    color: darkslateblue;
+}
+
+.panelGrid
+{
+    margin: 0 auto;
+    color: darkslateblue;
+}
+
+.ui-carousel
+{
+    opacity: 0.9;
+}
+
+.ui-carousel-header
+{
+    font-size: 1.5vw;
+    color: darkslateblue;
+}
+
+.ui-carousel-item
+{
+    font-size: 1vw;
+}
+
+.tableHeader
+{
+    color: black;
+    font-size: 1vw;
+}
+
+.text
+{
+    font-family: 'Permanent Marker';
+    color: darkslateblue;
+    font-size: 1vw;
+}
+
+.bottom
+{
+position: fixed; /* or absolute */
+  top: 48%;
+  left: 40%;
+    font-family: 'Permanent Marker';
+    color: darkslateblue;
+    font-size: 1vw;
+    width: 20%;
+}
+
+.bottom:hover
+{
+
+}
+
+.ui-button
+{
+    opacity: 0.9 !important;
+    color: darkslateblue !important;
+    font-size: 1vw !important;
+}
+
+.ui-button:hover
+{
+    color: darkorange;
+    -webkit-animation-name: pulse_animation;
+    -webkit-animation-duration: 500ms;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-timing-function: linear;
+    -moz-animation-name: pulse_animation;
+    -moz-animation-duration: 500ms;
+    -moz-animation-iteration-count: infinite;
+    -moz-animation-timing-function: linear;
+    color: darkorange !important;
+}
+
+.label
+{
+    font-family: 'Permanent Marker';
+    text-align: left;
+    color: #1e6ea7;
+    font-size: 1vw;
+}
+
+.label1
+{
+    font-family: 'Permanent Marker';
+    text-align: left;
+    color: black;
+    font-size: 1vw;
+}
+
+.label2
+{
+    font-family: 'Permanent Marker';
+    text-align: left;
+    color: darkblue;
+    font-size: 1vw;
+}
+
+.error
+{
+    font-family: 'Permanent Marker';
+    font-weight: bolder;
+    color: red;
+    display: inline-block;
+    list-style-type: none;
+    text-shadow: 4px 4px 4px rgba(255, 0, 0, 0.5);
+    font-size: 1vw;
+}
+
+.input
+{
+    color: red;
+}
+
+.ui-dialog-titlebar
+{
+    color: darkslateblue;
+    text-align: right;
+}
+
+.ui-dialog-title-dialog 
+{
+    text-align: center;
+}
+
+.ui-datatable th
+{
+    font-size: 1vw;
+}
+
+.ui-datatable
+{
+    opacity: 0.9;
+}
+
+.ui-datatable-even
+{
+    font-size: 1vw;
+}
+
+.ui-datatable-odd
+{
+    font-size: 1vw;
+}
+
+/*table
+{
+    margin-left: auto; 
+    margin-right :auto;
+}
+
+.back
+{
+    font-family: "Helvetica";
+    background: linear-gradient(black 0%, gray 100%);
+    border-color: orangered;
+    border-width: 4px;
+    height: 100vh;
+    padding: 50px 50px 50px 50px;
+}
+
+.movieHeader
+{
+   font-size: 32px;
+   font-weight: bold;
+   color: orangered;
+   text-shadow: 10px 10px 10px rgba(128, 0, 0, 0.5);
+   display: inline-block;
+}
+
+.movieListLabel
+{
+    float: right;
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+    text-shadow: 4px 4px 4px rgba(255, 255, 255, 0.5);
+}
+
+.movieListText
+{
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+    text-shadow: 4px 4px 4px rgba(255, 255, 255, 0.5);
+}
+
+@keyframes fadeIn 
+{
+    from 
+    {
+        opacity: 0;
+    }
+    
+    to 
+    {
+        opacity: 1;
+    }
+}
+
+.movieList
+{
+    text-align: center;
+    background: linear-gradient(black, darkblue);
+    font-size: 24px;
+    color: white;
+    font-weight: bold;
+    box-shadow: 
+        inset 0px 0px 56px 6px rgba(255,132,0,0.75),
+        0px 0px 56px 6px rgba(255,132,0,0.75);
+    padding: 20px 20px 20px 20px;
+    border-radius: 25px;
+    animation-name: fadeIn;
+    animation-duration: 2s;
+    animation-timing-function: ease-in-out;
+}
+
+.directorText
+{
+    font-size: 16px;
+    color: white;
+    font-weight: bold;
+    text-shadow: 10px 10px 10px rgba(255, 255, 255, 0.5);
+}
+
+.text-field
+{
+    font-size: 32px;
+    font-weight: bold;
+    color: orangered;
+    background-color: white;
+}
+
+.number-field
+{
+    float: left;
+    width: 12%;
+    font-size: 32px;
+    font-weight: bold;
+    color: orangered;
+    background-color: white;
+}
+
+.button
+{
+    background: 
+        linear-gradient(#686868 0%, #232723 25%, #373837 75%, #757575 100%),
+        linear-gradient(#020b02, #3a3a3a),
+        linear-gradient(#b9b9b9 0%, #c2c2c2 20%, #afafaf 80%, #c8c8c8 100%),
+        linear-gradient(#f5f5f5 0%, #dbdbdb 50%, #cacaca 51%, #d7d7d7 100%);
+    padding: 10px 20px 10px 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: orangered;
+    text-shadow: 1px 1px 1px rgba(255, 255, 255, 0.2)
+}
+
+.button:hover
+{
+    background: 
+        linear-gradient(#a34313 0%, #903b12 100%),
+        linear-gradient(#9d4024, #9d4024),
+        linear-gradient(#d86e3a, #d86e3a),
+        radial-gradient(#d86e3a, #c54e2c);
+    color: white;
+}
+
+.list-view .list-cell
+{
+    font-weight: bold;
+    text-shadow: 8px 8px 8px rgba(0, 0, 0, 0.5);
+}
+
+.list-view .list-cell:even 
+{
+    background-color: aliceblue;
+    color: black;
+}
+
+.list-view .list-cell:odd 
+{
+    background-color: blanchedalmond;
+    color: black;
+}
+
+.list-view .list-cell:hover 
+{
+    background-color: orangered;
+    color: white;
+}
+*/

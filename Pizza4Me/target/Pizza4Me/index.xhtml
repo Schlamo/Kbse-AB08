@@ -1,0 +1,25 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <h:head>
+        <title>Pizza4Me</title>
+        <h:outputStylesheet library="css" name="styles.css"  />
+        <link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet"/>
+    </h:head>
+    <h:body>
+        <img class="pizza" src="resources/images/back.png"/>
+        
+        <div class="wrapper">
+            <p:outputLabel style="font-size: 8vw;" styleClass="header" value="Pizza4Me"/>
+            <br/><br/><br/><br/>
+            <h:form styleClass="bottom">
+                <p:commandButton value="Bestellvorgang starten" action="#{orderModel.callOrderForm()}"/>
+            </h:form>
+        </div>
+    </h:body>
+</html>
