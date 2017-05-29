@@ -1,7 +1,9 @@
 package de.hsos.kbse.pizza4me.repository;
 
 import de.hsos.kbse.pizza4me.customer.Customer;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.ApplicationScoped;
 import javax.inject.Named;
@@ -16,6 +18,8 @@ public class CustomerRepository {
     private EntityManager em;
     
     private List<Customer> customers;
+    private Map<String,Long> locked = new HashMap<>();
+    private Map<String,Integer> attempt = new HashMap<>();
     
     public CustomerRepository() {
         
@@ -29,15 +33,22 @@ public class CustomerRepository {
     }
     
     public boolean validateUser(String username, String password) {
+        System.out.println(customers.size());
         for(Customer c: customers) {
             if(c.getLogin().getUsername().equals(username)) {
-                if(c.getLogin().getPassword().equals(password)) {
+                if(!isLocked(username) && c.getLogin().getPassword().equals(password)) {
                     return true;
                 }
-            } else {
-                return false;
-            }
+            } 
         }
+        
+        System.out.println("################## user: " + username + " attempt " + attempt.get(username));
+        attempt.put(username, attempt.get(username)!=null ? attempt.get(username) + 1 : 1);
+        if(attempt.get(username)!=null && attempt.get(username) > 2){
+            locked.put(username, System.currentTimeMillis());
+            System.out.println("################## user: " + username + " locked");
+        }
+        
         return false;
     }
     
@@ -61,5 +72,19 @@ public class CustomerRepository {
             e.printStackTrace();
         }
         return c;
+    }
+    
+    public boolean isLocked(String username){
+        if(locked.get(username)!=null)  
+            System.out.println("################## user: " + username + " diff: " + (System.currentTimeMillis()-locked.get(username)));
+        if(locked.get(username)!=null && (System.currentTimeMillis()-locked.get(username))<10000)
+            return true;
+        else if(locked.get(username)!=null && (System.currentTimeMillis()-locked.get(username))>=10000){
+            System.out.println("################## user: " + username + " released");
+            attempt.remove(username);
+            locked.remove(username);
+        }
+        return false;
+            
     }
 }
