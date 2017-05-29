@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
+import javax.enterprise.context.ApplicationScoped;
 import javax.enterprise.context.RequestScoped;
 import javax.enterprise.inject.Produces;
 import javax.inject.Named;
@@ -13,7 +14,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 
 @Named
-@RequestScoped
+@ApplicationScoped
 public class PizzaLister implements Serializable{
     @PersistenceContext(unitName = "CustomerPU")
     protected EntityManager em;
@@ -22,20 +23,15 @@ public class PizzaLister implements Serializable{
     
     @PostConstruct
     public void init() {
+        System.out.println("PizzaLister init()");
         TypedQuery<Pizza> query = this.em.createNamedQuery("findAllPizzas", Pizza.class);
         this.pizzas = (List<Pizza>)query.getResultList();
     }
 
     public PizzaLister() {
-        this.pizzas.add(persist(new Pizza( 1, "Pizza Margherita", 4.5)));
-        this.pizzas.add(persist(new Pizza( 2, "Pizza Thunfisch", 5.0)));
-        this.pizzas.add(persist(new Pizza( 3, "Pizza Salami", 5.0)));
-        this.pizzas.add(persist(new Pizza( 4, "Pizza Schinken", 5.0)));
-        this.pizzas.add(persist(new Pizza( 5, "Pizza Broccoli", 6.0)));
-        System.out.println("Size(Lister): " + pizzas.size());
+        this.pizzas.add(new Pizza( 1, "Pizza Margherita", 4.5));
     }
     
-    @Produces
     public List<Pizza> getPizzaList() {
         System.out.println("getPizzaList");
         return this.pizzas;

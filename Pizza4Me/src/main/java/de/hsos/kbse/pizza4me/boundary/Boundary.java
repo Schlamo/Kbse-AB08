@@ -8,6 +8,7 @@ import de.hsos.kbse.pizza4me.pizza.Pizza;
 import de.hsos.kbse.pizza4me.pizza.PizzaPair;
 import de.hsos.kbse.pizza4me.repository.CustomerRepository;
 import de.hsos.kbse.pizza4me.repository.OrderController;
+import de.hsos.kbse.pizza4me.repository.PizzaLister;
 import java.io.Serializable;
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -32,6 +33,8 @@ public class Boundary implements Serializable{
     //private OrderController orderController;
     
     @Inject
+    PizzaLister pizzaLister;
+    
     private List<Pizza> pizzas;
     
     @Inject 
@@ -44,6 +47,27 @@ public class Boundary implements Serializable{
     private double price = 0.0;
     private String username;    
     private String password;
+    
+    public Boundary() {
+        pizzaLister = new PizzaLister();
+    }
+
+    @PostConstruct
+    public void init() {
+        System.out.println("init");
+        
+        this.customer.setAddress(new Address());
+        this.customer.setLogin(new Login());
+        
+        this.repo.addCustomer(new Customer("Peter", "Peter", 
+                new Login("peter", "peter", "peter"), 
+                new Address("Peter Strasse 5", "012135179", "12512", "Osnabrooklyn")));
+        System.out.println("Size:" + pizzaLister.getPizzaList().size());
+        for(Pizza p: pizzaLister.getPizzaList()) {
+        System.out.println(p.getName());
+            order.addPair(new PizzaPair(p, 0));
+        }
+    }
 
     public String getUsername() {
         return username;
@@ -59,22 +83,6 @@ public class Boundary implements Serializable{
 
     public void setPassword(String password) {
         this.password = password;
-    }
-    
-    @PostConstruct
-    public void init() {
-        System.out.println("init");
-        this.customer.setAddress(new Address());
-        this.customer.setLogin(new Login());
-        
-        this.repo.addCustomer(new Customer("Peter", "Peter", 
-                new Login("peter", "peter", "peter"), 
-                new Address("Peter Strasse 5", "012135179", "12512", "Osnabrooklyn")));
-        System.out.println(pizzas.size());
-        for(Pizza p: pizzas) {
-        System.out.println(p.getName());
-            order.addPair(new PizzaPair(p, 0));
-        }
     }
   
     public List<Pizza> getPizzas() {
@@ -111,9 +119,6 @@ public class Boundary implements Serializable{
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
-    }
-
-    public Boundary() {
     }
 
     public double getPrice() {
